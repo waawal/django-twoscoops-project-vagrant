@@ -1,0 +1,8 @@
+---
+- name: Set up Django/postgres development stack
+  hosts: django
+  user: root
+
+  roles:
+    - django
+    - postgres
