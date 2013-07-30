@@ -10,4 +10,4 @@
     - build-essential
     - cmake
     - python-apt
-    - software-properties-common
+    - python-software-properties 
