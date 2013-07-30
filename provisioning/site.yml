@@ -4,6 +4,6 @@
   user: root
 
   roles:
-    -common
-    - django
-    - postgres
+    - common
+    #- django
+    #- postgres
