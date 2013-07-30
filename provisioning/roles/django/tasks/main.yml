@@ -1,0 +1,6 @@
+---
+
+- name: Install Django and virtualenv
+  sudo: yes
+  - pip: name=Django state=latest
+  - pip: name virtualenv state=latest

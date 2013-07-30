@@ -1,0 +1,5 @@
+- name: install initial packages
+  action: apt pkg=$item state=installed
+  with_items:
+    - build-essential
+    - python-software-properties
