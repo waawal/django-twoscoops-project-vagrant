@@ -1,6 +1,14 @@
 ---
 
-- name: Install Django and virtualenv
+- name: Install virtualenv
   sudo: yes
-  - pip: name=Django state=latest
-  - pip: name virtualenv state=latest
+  pip: name=virtualenv state=latest
+
+- name: Install Django in the virtualenv
+  pip: name=Django state=latest virtualenv=/home/vagrant/venv
+
+- name: Set default virtualenv for vagrant user
+  lineinfile: dest=/home/vagrant/.profile regexp='^source /home/vagrant/venv/bin/activate' line='source /home/vagrant/venv/bin/activate'
+
+#- name: Activate the virtualenv
+#  command: source /home/vagrant/venv/bin/activate
