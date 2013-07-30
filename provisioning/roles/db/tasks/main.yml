@@ -6,7 +6,7 @@
 
 - name: install postgres and psycopg2
   sudo: yes
-  apt: pkg=$item state=latest install_recommends=no
+  apt: pkg=$item state=latest force=yes install_recommends=no 
   with_items:
     - postgresql
     - libpq-dev
