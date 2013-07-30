@@ -19,4 +19,10 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--memory", MEMORY.to_i]
     v.customize ["modifyvm", :id, "--cpus", CORES.to_i]
   end
+
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = "provisioning/site.yml"
+    ansible.inventory_file = "provisioning/ansible_hosts"
+  end
+
 end
