@@ -12,8 +12,16 @@
     - libpq-dev
     - python-psycopg2
 
+- name: Allow peer auth for TCP connections to postgres
+  sudo: yes
+  lineinfile: dest=/etc/postgresql/9.2/main/pg_hba.conf regexp="^# IPv4 local connections:" insertafter=EOF line=" host    all             all             127.0.0.1/32            md5"
+  notify:
+    - restart postgres
+
 - name: Create a new database
+  sudo_user: postgres
   postgresql_db: db=$db_name
 
 - name: Create database user and grant access to database and tables
+  sudo_user: postgres
   postgresql_user: db=db_name user=db_user password=db_password priv=ALL
