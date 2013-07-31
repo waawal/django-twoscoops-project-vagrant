@@ -16,7 +16,7 @@
   sudo: yes
   lineinfile: dest=/etc/postgresql/9.2/main/pg_hba.conf regexp="^# IPv4 local connections:" insertafter=EOF line=" host    all             all             127.0.0.1/32            md5"
   notify:
-    - restart postgres
+    - restart postgresql
 
 - name: Create a new database
   sudo_user: postgres
